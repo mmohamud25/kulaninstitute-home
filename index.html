@@ -895,7 +895,7 @@ body.somali-on .so-inline { display:inline !important; }
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Contact</div>
-        <a href="/cdn-cgi/l/email-protection#b2dbdcd4ddf2d9c7ded3dcdbdcc1c6dbc6c7c6d79cddc0d5"><span class="__cf_email__" data-cfemail="a6cfc8c0c9e6cdd3cac7c8cfc8d5d2cfd2d3d2c388c9d4c1">[email&#160;protected]</span></a>
+        <a href="https://apply.kulaninstitute.org" style="color:var(--text-light);text-decoration:none;">apply.kulaninstitute.org</a>
         <a href="https://learn.kulaninstitute.org">learn.kulaninstitute.org</a>
       </div>
     </div>
@@ -1009,4 +1009,21 @@ var observer = new IntersectionObserver(function(entries) {
 fadeEls.forEach(function(el) { observer.observe(el); });
 
 // ── MOBILE MENU (basic) ──
-document.getElementById('mobileBtn').addEventListe
+document.getElementById('mobileBtn').addEventListener('click', function() {
+  var open = !navLinks.classList.contains('open');
+  navLinks.classList.toggle('open', open);
+  mobileBtn.classList.toggle('active', open);
+  if (overlay) overlay.classList.toggle('show', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+if (overlay) overlay.addEventListener('click', closeMenu);
+navLinks.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeMenu); });
+function closeMenu() {
+  navLinks.classList.remove('open');
+  mobileBtn.classList.remove('active');
+  if (overlay) overlay.classList.remove('show');
+  document.body.style.overflow = '';
+}
+</script>
+</body>
+</html>
